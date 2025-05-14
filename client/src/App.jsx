@@ -1,7 +1,10 @@
 import React from "react";
+import Navbar from "./components/Navbar";
+import { useLocation } from "react-router-dom";
 
 const App = () => {
-  return <div>Hello Booking</div>;
+  const isOwnerPath = useLocation().pathname.includes("owner");
+  return <div>{!isOwnerPath && <Navbar />}</div>;
 };
 
 export default App;
