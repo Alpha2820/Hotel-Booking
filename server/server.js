@@ -5,6 +5,7 @@ import connectDB from "./configs/db.js";
 import { clerkMiddleware } from "@clerk/express";
 import clerkWebhooks from "./controllers/clerkWebhooks.js";
 import userRouter from "./routes/userRoutes.js";
+import hotelRouter from "./routes/hotelRoutes.js";
 
 connectDB();
 const app = express();
@@ -18,6 +19,7 @@ app.use(clerkMiddleware());
 
 app.use("/api/clerk", clerkWebhooks);
 app.use("/api/user", userRouter);
+app.use("/api/hotels", hotelRouter);
 
 app.get("/", (req, res) => res.send("API is Working fine"));
 
